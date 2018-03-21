@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
@@ -114,7 +114,11 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -130,13 +134,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 6);
+            this.button1.Location = new System.Drawing.Point(7, 8);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "로그인";
             this.button1.UseVisualStyleBackColor = true;
@@ -146,21 +152,24 @@
             // 
             this.axKHOpenAPI1.Enabled = true;
             this.axKHOpenAPI1.Location = new System.Drawing.Point(216, 260);
+            this.axKHOpenAPI1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axKHOpenAPI1.Name = "axKHOpenAPI1";
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
-            this.axKHOpenAPI1.Size = new System.Drawing.Size(10, 20);
+            this.axKHOpenAPI1.Size = new System.Drawing.Size(13, 25);
             this.axKHOpenAPI1.TabIndex = 1;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(12, 557);
+            this.textBox1.Location = new System.Drawing.Point(14, 696);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1156, 92);
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(1321, 114);
             this.textBox1.TabIndex = 2;
             // 
             // tabControl1
@@ -168,11 +177,13 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.ItemSize = new System.Drawing.Size(80, 20);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(14, 15);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1160, 539);
+            this.tabControl1.Size = new System.Drawing.Size(1326, 674);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -180,9 +191,10 @@
             this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1152, 511);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1318, 646);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "로그인";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -193,9 +205,10 @@
             this.comboBox2.Items.AddRange(new object[] {
             "모의투자",
             "실전투자"});
-            this.comboBox2.Location = new System.Drawing.Point(88, 8);
+            this.comboBox2.Location = new System.Drawing.Point(101, 10);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
+            this.comboBox2.Size = new System.Drawing.Size(138, 23);
             this.comboBox2.TabIndex = 1;
             this.comboBox2.Text = "모의투자";
             // 
@@ -205,9 +218,10 @@
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1152, 511);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1318, 646);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "계좌 조회";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -216,9 +230,10 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox1.Location = new System.Drawing.Point(6, 172);
+            this.checkBox1.Location = new System.Drawing.Point(7, 215);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(115, 25);
+            this.checkBox1.Size = new System.Drawing.Size(141, 32);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "수수료 계산";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -244,14 +259,15 @@
             this.Column10,
             this.Column11});
             this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 197);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 246);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(838, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(958, 188);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
@@ -343,9 +359,11 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.username_textbox);
             this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(7, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 160);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(977, 200);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "잔고";
@@ -358,12 +376,12 @@
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.75926F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.24074F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 3, 0);
@@ -376,22 +394,23 @@
             this.tableLayoutPanel1.Controls.Add(this.label11, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.label12, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.label13, 7, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 57);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 71);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.17391F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.82609F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(812, 47);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(928, 59);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 1);
+            this.label3.Location = new System.Drawing.Point(71, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 22);
+            this.label3.Size = new System.Drawing.Size(52, 29);
             this.label3.TabIndex = 8;
             this.label3.Text = "순자산총액";
             // 
@@ -399,9 +418,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 1);
+            this.label2.Location = new System.Drawing.Point(4, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 22);
+            this.label2.Size = new System.Drawing.Size(52, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "순자산총액";
             // 
@@ -409,9 +428,9 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 1);
+            this.label5.Location = new System.Drawing.Point(251, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 21);
+            this.label5.Size = new System.Drawing.Size(72, 28);
             this.label5.TabIndex = 10;
             this.label5.Text = "예수금";
             // 
@@ -419,9 +438,9 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(301, 1);
+            this.label6.Location = new System.Drawing.Point(330, 1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.Size = new System.Drawing.Size(112, 28);
             this.label6.TabIndex = 11;
             this.label6.Text = "총평가금액";
             // 
@@ -429,9 +448,9 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(419, 1);
+            this.label7.Location = new System.Drawing.Point(461, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 21);
+            this.label7.Size = new System.Drawing.Size(112, 28);
             this.label7.TabIndex = 12;
             this.label7.Text = "총평가금액";
             // 
@@ -439,9 +458,9 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(122, 1);
+            this.label4.Location = new System.Drawing.Point(137, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 21);
+            this.label4.Size = new System.Drawing.Size(52, 29);
             this.label4.TabIndex = 9;
             this.label4.Text = "예수금";
             // 
@@ -449,9 +468,9 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(517, 1);
+            this.label8.Location = new System.Drawing.Point(587, 1);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 21);
+            this.label8.Size = new System.Drawing.Size(92, 29);
             this.label8.TabIndex = 13;
             this.label8.Text = "총평가손액";
             // 
@@ -459,9 +478,9 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(718, 1);
+            this.label9.Location = new System.Drawing.Point(812, 1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 21);
+            this.label9.Size = new System.Drawing.Size(112, 28);
             this.label9.TabIndex = 14;
             this.label9.Text = "총평가손액";
             // 
@@ -469,9 +488,9 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(301, 24);
+            this.label10.Location = new System.Drawing.Point(330, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 21);
+            this.label10.Size = new System.Drawing.Size(112, 27);
             this.label10.TabIndex = 15;
             this.label10.Text = "총매수금액";
             // 
@@ -479,9 +498,9 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(419, 24);
+            this.label11.Location = new System.Drawing.Point(461, 31);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 21);
+            this.label11.Size = new System.Drawing.Size(112, 27);
             this.label11.TabIndex = 16;
             this.label11.Text = "총매수금액";
             // 
@@ -489,9 +508,9 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(525, 24);
+            this.label12.Location = new System.Drawing.Point(587, 31);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 21);
+            this.label12.Size = new System.Drawing.Size(92, 27);
             this.label12.TabIndex = 17;
             this.label12.Text = "총수익률";
             // 
@@ -499,26 +518,27 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(734, 24);
+            this.label13.Location = new System.Drawing.Point(832, 31);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(74, 21);
+            this.label13.Size = new System.Drawing.Size(92, 27);
             this.label13.TabIndex = 18;
             this.label13.Text = "총수익률";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(7, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 21);
+            this.label1.Size = new System.Drawing.Size(52, 28);
             this.label1.TabIndex = 6;
             this.label1.Text = "계좌";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(349, 22);
+            this.button2.Location = new System.Drawing.Point(399, 28);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.Size = new System.Drawing.Size(86, 38);
             this.button2.TabIndex = 0;
             this.button2.Text = "조회";
             this.button2.UseVisualStyleBackColor = true;
@@ -527,28 +547,31 @@
             // id_textbox
             // 
             this.id_textbox.BackColor = System.Drawing.Color.White;
-            this.id_textbox.Location = new System.Drawing.Point(265, 22);
+            this.id_textbox.Location = new System.Drawing.Point(303, 28);
+            this.id_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.id_textbox.Name = "id_textbox";
             this.id_textbox.ReadOnly = true;
-            this.id_textbox.Size = new System.Drawing.Size(78, 29);
+            this.id_textbox.Size = new System.Drawing.Size(89, 34);
             this.id_textbox.TabIndex = 5;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(54, 22);
+            this.comboBox1.Location = new System.Drawing.Point(62, 28);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 29);
+            this.comboBox1.Size = new System.Drawing.Size(138, 36);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // username_textbox
             // 
             this.username_textbox.BackColor = System.Drawing.Color.White;
-            this.username_textbox.Location = new System.Drawing.Point(181, 22);
+            this.username_textbox.Location = new System.Drawing.Point(207, 28);
+            this.username_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.username_textbox.Name = "username_textbox";
             this.username_textbox.ReadOnly = true;
-            this.username_textbox.Size = new System.Drawing.Size(78, 29);
+            this.username_textbox.Size = new System.Drawing.Size(89, 34);
             this.username_textbox.TabIndex = 4;
             // 
             // tabPage3
@@ -567,9 +590,10 @@
             this.tabPage3.Controls.Add(this.trackBar1);
             this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1152, 511);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Size = new System.Drawing.Size(1318, 646);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "차트";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -579,18 +603,18 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel2.ColumnCount = 13;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel2.Controls.Add(this.turnoverRatioLabel, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.currentPriceLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.netChangeLabel, 1, 0);
@@ -604,11 +628,12 @@
             this.tableLayoutPanel2.Controls.Add(this.openPriceLabel, 8, 0);
             this.tableLayoutPanel2.Controls.Add(this.label14, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.tradingValueLabel, 6, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(273, 56);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(312, 70);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(877, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1002, 42);
             this.tableLayoutPanel2.TabIndex = 34;
             // 
             // turnoverRatioLabel
@@ -616,9 +641,9 @@
             this.turnoverRatioLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.turnoverRatioLabel.AutoSize = true;
             this.turnoverRatioLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.turnoverRatioLabel.Location = new System.Drawing.Point(366, 7);
+            this.turnoverRatioLabel.Location = new System.Drawing.Point(410, 9);
             this.turnoverRatioLabel.Name = "turnoverRatioLabel";
-            this.turnoverRatioLabel.Size = new System.Drawing.Size(37, 19);
+            this.turnoverRatioLabel.Size = new System.Drawing.Size(42, 23);
             this.turnoverRatioLabel.TabIndex = 34;
             this.turnoverRatioLabel.Text = "80%";
             // 
@@ -627,9 +652,9 @@
             this.currentPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.currentPriceLabel.AutoSize = true;
             this.currentPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.currentPriceLabel.Location = new System.Drawing.Point(5, 7);
+            this.currentPriceLabel.Location = new System.Drawing.Point(7, 2);
             this.currentPriceLabel.Name = "currentPriceLabel";
-            this.currentPriceLabel.Size = new System.Drawing.Size(65, 19);
+            this.currentPriceLabel.Size = new System.Drawing.Size(64, 38);
             this.currentPriceLabel.TabIndex = 24;
             this.currentPriceLabel.Text = "2000000";
             // 
@@ -638,9 +663,9 @@
             this.netChangeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.netChangeLabel.AutoSize = true;
             this.netChangeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.netChangeLabel.Location = new System.Drawing.Point(81, 7);
+            this.netChangeLabel.Location = new System.Drawing.Point(86, 9);
             this.netChangeLabel.Name = "netChangeLabel";
-            this.netChangeLabel.Size = new System.Drawing.Size(49, 19);
+            this.netChangeLabel.Size = new System.Drawing.Size(55, 23);
             this.netChangeLabel.TabIndex = 25;
             this.netChangeLabel.Text = "10000";
             // 
@@ -649,9 +674,9 @@
             this.fluctuationRateLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fluctuationRateLabel.AutoSize = true;
             this.fluctuationRateLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.fluctuationRateLabel.Location = new System.Drawing.Point(149, 7);
+            this.fluctuationRateLabel.Location = new System.Drawing.Point(163, 9);
             this.fluctuationRateLabel.Name = "fluctuationRateLabel";
-            this.fluctuationRateLabel.Size = new System.Drawing.Size(37, 19);
+            this.fluctuationRateLabel.Size = new System.Drawing.Size(42, 23);
             this.fluctuationRateLabel.TabIndex = 26;
             this.fluctuationRateLabel.Text = "10%";
             // 
@@ -660,9 +685,9 @@
             this.volumeChangeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.volumeChangeLabel.AutoSize = true;
             this.volumeChangeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.volumeChangeLabel.Location = new System.Drawing.Point(298, 7);
+            this.volumeChangeLabel.Location = new System.Drawing.Point(332, 9);
             this.volumeChangeLabel.Name = "volumeChangeLabel";
-            this.volumeChangeLabel.Size = new System.Drawing.Size(37, 19);
+            this.volumeChangeLabel.Size = new System.Drawing.Size(42, 23);
             this.volumeChangeLabel.TabIndex = 27;
             this.volumeChangeLabel.Text = "80%";
             // 
@@ -671,9 +696,9 @@
             this.accumulatedVolumeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.accumulatedVolumeLabel.AutoSize = true;
             this.accumulatedVolumeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.accumulatedVolumeLabel.Location = new System.Drawing.Point(203, 7);
+            this.accumulatedVolumeLabel.Location = new System.Drawing.Point(225, 9);
             this.accumulatedVolumeLabel.Name = "accumulatedVolumeLabel";
-            this.accumulatedVolumeLabel.Size = new System.Drawing.Size(73, 19);
+            this.accumulatedVolumeLabel.Size = new System.Drawing.Size(82, 23);
             this.accumulatedVolumeLabel.TabIndex = 31;
             this.accumulatedVolumeLabel.Text = "10000000";
             // 
@@ -682,9 +707,9 @@
             this.lowPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lowPriceLabel.AutoSize = true;
             this.lowPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.lowPriceLabel.Location = new System.Drawing.Point(796, 7);
+            this.lowPriceLabel.Location = new System.Drawing.Point(906, 9);
             this.lowPriceLabel.Name = "lowPriceLabel";
-            this.lowPriceLabel.Size = new System.Drawing.Size(65, 19);
+            this.lowPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.lowPriceLabel.TabIndex = 30;
             this.lowPriceLabel.Text = "1000000";
             // 
@@ -694,9 +719,9 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.LightGray;
             this.label16.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label16.Location = new System.Drawing.Point(751, 6);
+            this.label16.Location = new System.Drawing.Point(847, 7);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(26, 21);
+            this.label16.Size = new System.Drawing.Size(32, 28);
             this.label16.TabIndex = 36;
             this.label16.Text = "저";
             // 
@@ -705,9 +730,9 @@
             this.highPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.highPriceLabel.AutoSize = true;
             this.highPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.highPriceLabel.Location = new System.Drawing.Point(674, 7);
+            this.highPriceLabel.Location = new System.Drawing.Point(761, 9);
             this.highPriceLabel.Name = "highPriceLabel";
-            this.highPriceLabel.Size = new System.Drawing.Size(65, 19);
+            this.highPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.highPriceLabel.TabIndex = 29;
             this.highPriceLabel.Text = "1000000";
             // 
@@ -717,9 +742,9 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightGray;
             this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label15.Location = new System.Drawing.Point(636, 6);
+            this.label15.Location = new System.Drawing.Point(716, 7);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(26, 21);
+            this.label15.Size = new System.Drawing.Size(32, 28);
             this.label15.TabIndex = 38;
             this.label15.Text = "고";
             // 
@@ -728,9 +753,9 @@
             this.openPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.openPriceLabel.AutoSize = true;
             this.openPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.openPriceLabel.Location = new System.Drawing.Point(558, 7);
+            this.openPriceLabel.Location = new System.Drawing.Point(630, 9);
             this.openPriceLabel.Name = "openPriceLabel";
-            this.openPriceLabel.Size = new System.Drawing.Size(65, 19);
+            this.openPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.openPriceLabel.TabIndex = 28;
             this.openPriceLabel.Text = "1000000";
             // 
@@ -740,9 +765,9 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.LightGray;
             this.label14.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label14.Location = new System.Drawing.Point(520, 6);
+            this.label14.Location = new System.Drawing.Point(584, 7);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(26, 21);
+            this.label14.Size = new System.Drawing.Size(32, 28);
             this.label14.TabIndex = 37;
             this.label14.Text = "시";
             // 
@@ -751,9 +776,9 @@
             this.tradingValueLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tradingValueLabel.AutoSize = true;
             this.tradingValueLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.tradingValueLabel.Location = new System.Drawing.Point(445, 7);
+            this.tradingValueLabel.Location = new System.Drawing.Point(500, 9);
             this.tradingValueLabel.Name = "tradingValueLabel";
-            this.tradingValueLabel.Size = new System.Drawing.Size(41, 19);
+            this.tradingValueLabel.Size = new System.Drawing.Size(46, 23);
             this.tradingValueLabel.TabIndex = 33;
             this.tradingValueLabel.Text = "1000";
             // 
@@ -762,9 +787,9 @@
             this.chartYLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chartYLabel.BackColor = System.Drawing.Color.NavajoWhite;
             this.chartYLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.chartYLabel.Location = new System.Drawing.Point(1081, 93);
+            this.chartYLabel.Location = new System.Drawing.Point(1235, 116);
             this.chartYLabel.Name = "chartYLabel";
-            this.chartYLabel.Size = new System.Drawing.Size(71, 19);
+            this.chartYLabel.Size = new System.Drawing.Size(81, 23);
             this.chartYLabel.TabIndex = 6;
             this.chartYLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.chartYLabel.Visible = false;
@@ -784,9 +809,10 @@
             "30",
             "60",
             "120"});
-            this.comboBox3.Location = new System.Drawing.Point(467, 20);
+            this.comboBox3.Location = new System.Drawing.Point(534, 25);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(39, 29);
+            this.comboBox3.Size = new System.Drawing.Size(44, 36);
             this.comboBox3.TabIndex = 22;
             this.comboBox3.Text = "1";
             this.comboBox3.TextChanged += new System.EventHandler(this.comboBox3_TextChanged);
@@ -794,9 +820,10 @@
             // tickButton
             // 
             this.tickButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tickButton.Location = new System.Drawing.Point(430, 19);
+            this.tickButton.Location = new System.Drawing.Point(491, 24);
+            this.tickButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tickButton.Name = "tickButton";
-            this.tickButton.Size = new System.Drawing.Size(30, 30);
+            this.tickButton.Size = new System.Drawing.Size(34, 38);
             this.tickButton.TabIndex = 21;
             this.tickButton.Text = "틱";
             this.tickButton.UseVisualStyleBackColor = true;
@@ -804,9 +831,10 @@
             // minuteButton
             // 
             this.minuteButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.minuteButton.Location = new System.Drawing.Point(394, 19);
+            this.minuteButton.Location = new System.Drawing.Point(450, 24);
+            this.minuteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.minuteButton.Name = "minuteButton";
-            this.minuteButton.Size = new System.Drawing.Size(30, 30);
+            this.minuteButton.Size = new System.Drawing.Size(34, 38);
             this.minuteButton.TabIndex = 20;
             this.minuteButton.Text = "분";
             this.minuteButton.UseVisualStyleBackColor = true;
@@ -814,9 +842,10 @@
             // monthlyButton
             // 
             this.monthlyButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.monthlyButton.Location = new System.Drawing.Point(358, 19);
+            this.monthlyButton.Location = new System.Drawing.Point(409, 24);
+            this.monthlyButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.monthlyButton.Name = "monthlyButton";
-            this.monthlyButton.Size = new System.Drawing.Size(30, 30);
+            this.monthlyButton.Size = new System.Drawing.Size(34, 38);
             this.monthlyButton.TabIndex = 19;
             this.monthlyButton.Text = "월";
             this.monthlyButton.UseVisualStyleBackColor = true;
@@ -824,9 +853,10 @@
             // weeklyButton
             // 
             this.weeklyButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.weeklyButton.Location = new System.Drawing.Point(322, 19);
+            this.weeklyButton.Location = new System.Drawing.Point(368, 24);
+            this.weeklyButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weeklyButton.Name = "weeklyButton";
-            this.weeklyButton.Size = new System.Drawing.Size(30, 30);
+            this.weeklyButton.Size = new System.Drawing.Size(34, 38);
             this.weeklyButton.TabIndex = 18;
             this.weeklyButton.Text = "주";
             this.weeklyButton.UseVisualStyleBackColor = true;
@@ -834,9 +864,10 @@
             // dailyButton
             // 
             this.dailyButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.dailyButton.Location = new System.Drawing.Point(286, 20);
+            this.dailyButton.Location = new System.Drawing.Point(327, 25);
+            this.dailyButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dailyButton.Name = "dailyButton";
-            this.dailyButton.Size = new System.Drawing.Size(30, 30);
+            this.dailyButton.Size = new System.Drawing.Size(34, 38);
             this.dailyButton.TabIndex = 17;
             this.dailyButton.Text = "일";
             this.dailyButton.UseVisualStyleBackColor = true;
@@ -847,9 +878,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(1115, 475);
+            this.button4.Location = new System.Drawing.Point(1274, 594);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(30, 30);
+            this.button4.Size = new System.Drawing.Size(34, 38);
             this.button4.TabIndex = 16;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
@@ -859,9 +891,10 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(1080, 475);
+            this.button3.Location = new System.Drawing.Point(1234, 594);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 30);
+            this.button3.Size = new System.Drawing.Size(34, 38);
             this.button3.TabIndex = 15;
             this.button3.Text = "-";
             this.button3.UseVisualStyleBackColor = true;
@@ -871,10 +904,11 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Location = new System.Drawing.Point(6, 6);
+            this.tabControl2.Location = new System.Drawing.Point(7, 8);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(267, 499);
+            this.tabControl2.Size = new System.Drawing.Size(305, 624);
             this.tabControl2.TabIndex = 14;
             // 
             // tabPage4
@@ -889,10 +923,11 @@
             this.tabPage4.Controls.Add(this.codeSearchTextBox);
             this.tabPage4.Controls.Add(this.elwButton);
             this.tabPage4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(259, 473);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage4.Size = new System.Drawing.Size(297, 595);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "종목 검색";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -900,9 +935,10 @@
             // kospiAndKosdaqButton
             // 
             this.kospiAndKosdaqButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.kospiAndKosdaqButton.Location = new System.Drawing.Point(89, 44);
+            this.kospiAndKosdaqButton.Location = new System.Drawing.Point(102, 55);
+            this.kospiAndKosdaqButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kospiAndKosdaqButton.Name = "kospiAndKosdaqButton";
-            this.kospiAndKosdaqButton.Size = new System.Drawing.Size(156, 30);
+            this.kospiAndKosdaqButton.Size = new System.Drawing.Size(178, 38);
             this.kospiAndKosdaqButton.TabIndex = 3;
             this.kospiAndKosdaqButton.Text = "거래소 + 코스닥";
             this.kospiAndKosdaqButton.UseVisualStyleBackColor = true;
@@ -910,9 +946,10 @@
             // allItemButton
             // 
             this.allItemButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.allItemButton.Location = new System.Drawing.Point(8, 8);
+            this.allItemButton.Location = new System.Drawing.Point(9, 10);
+            this.allItemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.allItemButton.Name = "allItemButton";
-            this.allItemButton.Size = new System.Drawing.Size(75, 29);
+            this.allItemButton.Size = new System.Drawing.Size(86, 36);
             this.allItemButton.TabIndex = 0;
             this.allItemButton.Text = "전종목";
             this.allItemButton.UseVisualStyleBackColor = true;
@@ -920,9 +957,10 @@
             // KospiButton
             // 
             this.KospiButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.KospiButton.Location = new System.Drawing.Point(89, 8);
+            this.KospiButton.Location = new System.Drawing.Point(102, 10);
+            this.KospiButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.KospiButton.Name = "KospiButton";
-            this.KospiButton.Size = new System.Drawing.Size(75, 30);
+            this.KospiButton.Size = new System.Drawing.Size(86, 38);
             this.KospiButton.TabIndex = 1;
             this.KospiButton.Text = "거래소";
             this.KospiButton.UseVisualStyleBackColor = true;
@@ -935,14 +973,15 @@
             this.itemSearchGridView.BackgroundColor = System.Drawing.Color.White;
             this.itemSearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemSearchGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.itemSearchGridView.Location = new System.Drawing.Point(8, 114);
+            this.itemSearchGridView.Location = new System.Drawing.Point(9, 142);
+            this.itemSearchGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.itemSearchGridView.MultiSelect = false;
             this.itemSearchGridView.Name = "itemSearchGridView";
             this.itemSearchGridView.ReadOnly = true;
             this.itemSearchGridView.RowHeadersVisible = false;
             this.itemSearchGridView.RowTemplate.Height = 23;
             this.itemSearchGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.itemSearchGridView.Size = new System.Drawing.Size(237, 345);
+            this.itemSearchGridView.Size = new System.Drawing.Size(271, 431);
             this.itemSearchGridView.TabIndex = 10;
             this.itemSearchGridView.Visible = false;
             this.itemSearchGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.itemSearchGridView_MouseClick);
@@ -950,9 +989,10 @@
             // kosdaqButton
             // 
             this.kosdaqButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.kosdaqButton.Location = new System.Drawing.Point(170, 8);
+            this.kosdaqButton.Location = new System.Drawing.Point(194, 10);
+            this.kosdaqButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.kosdaqButton.Name = "kosdaqButton";
-            this.kosdaqButton.Size = new System.Drawing.Size(75, 30);
+            this.kosdaqButton.Size = new System.Drawing.Size(86, 38);
             this.kosdaqButton.TabIndex = 2;
             this.kosdaqButton.Text = "코스닥";
             this.kosdaqButton.UseVisualStyleBackColor = true;
@@ -968,14 +1008,15 @@
             this.종목명,
             this.코드});
             this.itemGridView.GridColor = System.Drawing.Color.DarkGray;
-            this.itemGridView.Location = new System.Drawing.Point(8, 114);
+            this.itemGridView.Location = new System.Drawing.Point(9, 142);
+            this.itemGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.itemGridView.MultiSelect = false;
             this.itemGridView.Name = "itemGridView";
             this.itemGridView.ReadOnly = true;
             this.itemGridView.RowHeadersVisible = false;
             this.itemGridView.RowTemplate.Height = 23;
             this.itemGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.itemGridView.Size = new System.Drawing.Size(237, 345);
+            this.itemGridView.Size = new System.Drawing.Size(271, 431);
             this.itemGridView.TabIndex = 9;
             this.itemGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.itemGridView_MouseClick);
             // 
@@ -998,25 +1039,28 @@
             // nameSearchTextBox
             // 
             this.nameSearchTextBox.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.nameSearchTextBox.Location = new System.Drawing.Point(8, 79);
+            this.nameSearchTextBox.Location = new System.Drawing.Point(9, 99);
+            this.nameSearchTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameSearchTextBox.Name = "nameSearchTextBox";
-            this.nameSearchTextBox.Size = new System.Drawing.Size(142, 29);
+            this.nameSearchTextBox.Size = new System.Drawing.Size(162, 34);
             this.nameSearchTextBox.TabIndex = 5;
             // 
             // codeSearchTextBox
             // 
             this.codeSearchTextBox.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.codeSearchTextBox.Location = new System.Drawing.Point(156, 80);
+            this.codeSearchTextBox.Location = new System.Drawing.Point(178, 100);
+            this.codeSearchTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.codeSearchTextBox.Name = "codeSearchTextBox";
-            this.codeSearchTextBox.Size = new System.Drawing.Size(89, 29);
+            this.codeSearchTextBox.Size = new System.Drawing.Size(101, 34);
             this.codeSearchTextBox.TabIndex = 7;
             // 
             // elwButton
             // 
             this.elwButton.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.elwButton.Location = new System.Drawing.Point(8, 43);
+            this.elwButton.Location = new System.Drawing.Point(9, 54);
+            this.elwButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.elwButton.Name = "elwButton";
-            this.elwButton.Size = new System.Drawing.Size(75, 30);
+            this.elwButton.Size = new System.Drawing.Size(86, 38);
             this.elwButton.TabIndex = 6;
             this.elwButton.Text = "ELW";
             this.elwButton.UseVisualStyleBackColor = true;
@@ -1024,10 +1068,11 @@
             // tabPage5
             // 
             this.tabPage5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(259, 473);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage5.Size = new System.Drawing.Size(297, 595);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "관심 종목";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1036,12 +1081,13 @@
             // 
             this.trackBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.trackBar1.BackColor = System.Drawing.Color.White;
-            this.trackBar1.Location = new System.Drawing.Point(987, 476);
+            this.trackBar1.Location = new System.Drawing.Point(1128, 595);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Minimum = 5;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackBar1.Size = new System.Drawing.Size(97, 45);
+            this.trackBar1.Size = new System.Drawing.Size(111, 56);
             this.trackBar1.TabIndex = 13;
             this.trackBar1.Value = 100;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -1051,69 +1097,114 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AlignWithChartArea = "volumeChartArea";
-            chartArea1.AxisX.IsReversed = true;
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.ScrollBar.Enabled = false;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.CursorX.IsUserSelectionEnabled = true;
-            chartArea1.InnerPlotPosition.Auto = false;
-            chartArea1.InnerPlotPosition.Height = 92.36364F;
-            chartArea1.InnerPlotPosition.Width = 90.32448F;
-            chartArea1.InnerPlotPosition.X = 1.675532F;
-            chartArea1.InnerPlotPosition.Y = 3.818182F;
-            chartArea1.Name = "PriceChartArea";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 55F;
-            chartArea1.Position.Width = 94F;
-            chartArea1.Position.X = 3F;
-            chartArea1.Position.Y = 3F;
-            chartArea2.AxisX.IsReversed = true;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Height = 80.86906F;
-            chartArea2.InnerPlotPosition.Width = 90.32448F;
-            chartArea2.InnerPlotPosition.X = 1.675532F;
-            chartArea2.InnerPlotPosition.Y = 4.999996F;
-            chartArea2.Name = "volumeChartArea";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 38F;
-            chartArea2.Position.Width = 94F;
-            chartArea2.Position.X = 3F;
-            chartArea2.Position.Y = 59F;
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea3.AlignWithChartArea = "volumeChartArea";
+            chartArea3.AxisX.IsReversed = true;
+            chartArea3.AxisX.LabelStyle.Enabled = false;
+            chartArea3.AxisX.ScrollBar.Enabled = false;
+            chartArea3.AxisY.IsLabelAutoFit = false;
+            chartArea3.CursorX.IsUserSelectionEnabled = true;
+            chartArea3.InnerPlotPosition.Auto = false;
+            chartArea3.InnerPlotPosition.Height = 92.36364F;
+            chartArea3.InnerPlotPosition.Width = 90.32448F;
+            chartArea3.InnerPlotPosition.X = 1.675532F;
+            chartArea3.InnerPlotPosition.Y = 3.818182F;
+            chartArea3.Name = "PriceChartArea";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 55F;
+            chartArea3.Position.Width = 94F;
+            chartArea3.Position.X = 3F;
+            chartArea3.Position.Y = 3F;
+            chartArea4.AxisX.IsReversed = true;
+            chartArea4.AxisY.IsLabelAutoFit = false;
+            chartArea4.CursorX.IsUserSelectionEnabled = true;
+            chartArea4.InnerPlotPosition.Auto = false;
+            chartArea4.InnerPlotPosition.Height = 80.86906F;
+            chartArea4.InnerPlotPosition.Width = 90.32448F;
+            chartArea4.InnerPlotPosition.X = 1.675532F;
+            chartArea4.InnerPlotPosition.Y = 4.999996F;
+            chartArea4.Name = "volumeChartArea";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 38F;
+            chartArea4.Position.Width = 94F;
+            chartArea4.Position.X = 3F;
+            chartArea4.Position.Y = 59F;
+            this.chart1.ChartAreas.Add(chartArea3);
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.chart1.Location = new System.Drawing.Point(261, 71);
+            this.chart1.Location = new System.Drawing.Point(298, 89);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "PriceChartArea";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "priceSeries";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "volumeChartArea";
-            series2.Name = "volumeSeries";
-            series2.YValuesPerPoint = 4;
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(891, 434);
+            series3.ChartArea = "PriceChartArea";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "priceSeries";
+            series3.YValuesPerPoint = 4;
+            series4.ChartArea = "volumeChartArea";
+            series4.Name = "volumeSeries";
+            series4.YValuesPerPoint = 4;
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(1018, 542);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             this.chart1.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart1_AxisViewChanged);
             this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.button6);
+            this.tabPage6.Controls.Add(this.textBox2);
+            this.tabPage6.Controls.Add(this.button5);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1318, 646);
+            this.tabPage6.TabIndex = 3;
+            this.tabPage6.Text = "DeepLearning";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.Location = new System.Drawing.Point(130, 6);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(229, 38);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "특정 주식 데이터 저장";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox2.Location = new System.Drawing.Point(6, 11);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(118, 30);
+            this.textBox2.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button6.Location = new System.Drawing.Point(130, 50);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(229, 38);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "코스닥 주식 데이터 저장";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1353, 826);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.axKHOpenAPI1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1135,6 +1226,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1223,6 +1316,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lowPriceLabel;
         private System.Windows.Forms.Label turnoverRatioLabel;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

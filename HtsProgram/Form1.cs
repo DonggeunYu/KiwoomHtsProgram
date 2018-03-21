@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -289,9 +290,17 @@ namespace HtsProgram
                     string codeList = axKHOpenAPI1.GetCodeListByMarket(marketCode);
                     string[] codeListArray = codeList.Split(';');
 
+                    string inter = @"C:\DeepLearningFile\kosdaq.txt";
+                    FileStream fs = null;
+                    StreamWriter sw = null;
+
+                    fs = new FileStream(inter, FileMode.OpenOrCreate, FileAccess.Write);
+                    sw = new StreamWriter(fs, Encoding.Default);
                     for (int i = 0; i < codeListArray.Length; i++)
                     {
+                        
                         string code = codeListArray[i];
+                        sw.WriteLine(code);
                         if (code.Length > 0)
                         {
                             string name = axKHOpenAPI1.GetMasterCodeName(code);
@@ -306,6 +315,8 @@ namespace HtsProgram
                             itemGridView["코드", i].Value = code;
                         }
                     }
+                    sw.Close();
+                    fs.Close();
                 }
                 else
                 {
@@ -635,6 +646,46 @@ namespace HtsProgram
                 try
                 {
                     int nCnt = axKHOpenAPI1.GetRepeatCnt(e.sTrCode, e.sRQName);
+                    
+                    // 딥러닝
+                    if (DeepLearningM == 1)
+                    {
+                        string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + ".txt";
+
+                            FileStream fs = null;
+                            StreamWriter sw = null;
+                            
+
+                            try
+                            {
+                                fs = new FileStream(Initialsetupfile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                                sw = new StreamWriter(fs, Encoding.Default);
+                                string message = string.Empty;
+                                
+                                for (int nIdx = 0; nIdx < nCnt; nIdx++)
+                                {
+                                       sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "시가").Trim());
+                                }                                  
+                                
+                            }
+                            catch (IOException ee)
+                            {
+                                MessageBox.Show(ee.Message);
+                            }
+                            finally
+                            {
+                                sw.Close();
+                                fs.Close();
+                            }
+
+                        textBox1.AppendText("\r\n\r\n" + NowCode + "저장 완료");
+                        DeepLearningM = 0;
+                        return;
+                    }
+
+
+
+                    // 일반
 
                     priceInfoList = new List<PriceInfoEntityObject>();
                     priceSeries.Points.Clear();
@@ -662,6 +713,7 @@ namespace HtsProgram
 
                     for (int nIdx = 0; nIdx < nCnt; nIdx++)
                     {
+                        
                         if (e.sRQName == "JM_주식분봉차트조회" || e.sRQName == "JM_주식틱봉차트조회")
                             priceInfoList.Add(new PriceInfoEntityObject()
                             {
@@ -729,10 +781,7 @@ namespace HtsProgram
                     update_price60이평선_create();
                     update_price120이평선_create();
 
-                    update_volume5이평선_create();
-                    update_volume20이평선_create();
-                    update_volume60이평선_create();
-                    update_volume120이평선_create();
+
 
                     
                 }
@@ -765,26 +814,31 @@ namespace HtsProgram
 
         }
 
+        int ChartView = 0;
         private void AxkhopenAPI_OnReceiveRealData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
             if (e.sRealType == "주식체결")
             {
                 string 종목코드 = e.sRealKey;
                 //Console.WriteLine(종목코드);
-                if (ItemClick.Equals(종목코드))
+                if (ChartView == 1)
                 {
-                    int 현재가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 10));
-                    int 전일대비 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 11));
-                    double 등락율 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 12));
-                    double 거래량 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 13));
-                    double 거래대비 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 30));
-                    double 거래회전율 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 31));
-                    double 거래대금 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 14));
-                    int 시가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 16));
-                    int 고가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 17));
-                    int 저가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 18));
+                    if (ItemClick.Equals(종목코드))
+                    {
+                        int 현재가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 10));
+                        int 전일대비 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 11));
+                        double 등락율 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 12));
+                        double 거래량 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 13));
+                        double 거래대비 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 30));
+                        double 거래회전율 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 31));
+                        double 거래대금 = double.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 14));
+                        int 시가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 16));
+                        int 고가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 17));
+                        int 저가 = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 18));
 
-                    SetStockInfo(현재가, 전일대비, 등락율, 거래량, 거래대비, 거래회전율, 거래대금, 시가, 고가, 저가);
+                        SetStockInfo(현재가, 전일대비, 등락율, 거래량, 거래대비, 거래회전율, 거래대금, 시가, 고가, 저가);
+                    }
+                    ChartView = 0;
                 }
             }
 
@@ -854,7 +908,7 @@ namespace HtsProgram
             axKHOpenAPI1.SetInputValue("종목코드", this.ItemClick);
 
             int nRet = axKHOpenAPI1.CommRqData("JM_주식기본정보요청", "OPT10001", 0, "5001");
-
+                
             if (nRet == 0)
             {
                 Console.WriteLine("주식기본정보요청 성공");
@@ -935,6 +989,7 @@ namespace HtsProgram
 
             priceInfoList = new List<PriceInfoEntityObject>();
 
+            ChartView = 1;
             RequestDailyChart();
         } // 주식 리스트 클릭
 
@@ -946,6 +1001,7 @@ namespace HtsProgram
 
             priceInfoList = new List<PriceInfoEntityObject>();
 
+            ChartView = 1;
             RequestDailyChart();
 
             // 차트 초기화
@@ -1597,299 +1653,40 @@ namespace HtsProgram
 
 
 
-        void update_volume5이평선_add()
+
+
+
+        int DeepLearningM = 0;
+        int NowCode = 0; // 현재 종목코드
+        private void button5_Click(object sender, EventArgs e) // DeepLearning
         {
-            //  5이평선이 그려저 있다면 그 정보를 가져온다.
-            Series avr_5 = chart1.Series.FindByName("vavr_5");
+            //chart1.Series["Series1"].Points.Clear();
+            NowCode = Int32.Parse(textBox1.Text);
+            axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
+            axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
+            axKHOpenAPI1.SetInputValue("수정주가구분", "1");
 
-            if (avr_5 == null)
-            {
-                return;
-            }
+            int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
+            DeepLearningM = 1;
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string fw = @"C:\DeepLearningFile\kosdaq.txt";
+            FileStream fs = null;
+            StreamReader sr = null;
 
-            double avr_sum;
-            avr_sum = 0.0;
+            fs = new FileStream(fw, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            sr = new StreamReader(fs);
 
-            // i~5개의 데이터 합을 구한다.
-            for (int i = 0; i < 5; i++)
-            {
-                avr_sum += priceInfoList[i].거래량;
-            }
-            priceInfoList[0].vavr_5 = avr_sum / 5;
-
-            avr_5.Points.AddXY(chart1.Series["volumeSeries"].Points[0].XValue, priceInfoList[0].vavr_5);
+            string temp = sr.ReadLine();
         }
 
-        void update_volume5이평선_update()
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_5 = chart1.Series.FindByName("vavr_5");
-
-                if (avr_5 == null)
-                    return;
-
-                double avr_sum = 0.0;
-                for (int i = 0; i < 5; i++)
-                {
-                    avr_sum += priceInfoList[i].거래량;
-                }
-
-                priceInfoList[0].vavr_5 = avr_sum / 5;
-                avr_5.Points[0].SetValueY(priceInfoList[0].vavr_5);
-            }
-        }
-
-        void update_volume5이평선_create()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_5 = chart1.Series.FindByName("vavr_5");
-
-                if (avr_5 == null)
-                {
-                    avr_5 = chart1.Series.Add("vavr_5");
-                }
-
-                avr_5.ChartType = SeriesChartType.Line;
-                avr_5.Color = Color.Green;
-                avr_5.Points.Clear();
-
-                for (int i = 0; i < priceInfoList.Count - 5; i++)
-                {
-                    double avr_sum = 0.0;
-
-                    for (int j = 0; j < 5; j++)
-                    {
-                        avr_sum += priceInfoList[i + j].거래량;
-                    }
-
-                    priceInfoList[i].vavr_5 = avr_sum / 5;
-                    avr_5.Points.AddXY(chart1.Series["volumeSeries"].Points[i].XValue, priceInfoList[i].vavr_5);
-                }
-            }
+            textBox1.Select(textBox1.Text.Length, 0);
+            textBox1.ScrollToCaret();
         }
 
 
-        void update_volume20이평선_add()
-        {
-            //  20이평선이 그려저 있다면 그 정보를 가져온다.
-            Series avr_20 = chart1.Series.FindByName("vavr_20");
-
-            if (avr_20 == null)
-            {
-                return;
-            }
-
-            double avr_sum;
-            avr_sum = 0.0;
-
-            // i~20개의 데이터 합을 구한다.
-            for (int i = 0; i < 20; i++)
-            {
-                avr_sum += priceInfoList[i].종가;
-            }
-            priceInfoList[0].vavr_20 = avr_sum / 20;
-
-            avr_20.Points.AddXY(chart1.Series["volumeSeries"].Points[0].XValue, priceInfoList[0].vavr_20);
-        }
-
-        void update_volume20이평선_update()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_20 = chart1.Series.FindByName("vavr_20");
-
-                if (avr_20 == null)
-                    return;
-
-                double avr_sum = 0.0;
-                for (int i = 0; i < 20; i++)
-                {
-                    avr_sum += priceInfoList[i].거래량;
-                }
-
-                priceInfoList[0].vavr_20 = avr_sum / 20;
-                avr_20.Points[0].SetValueY(priceInfoList[0].vavr_20);
-            }
-        }
-
-        void update_volume20이평선_create()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_20 = chart1.Series.FindByName("vavr_20");
-
-                if (avr_20 == null)
-                {
-                    avr_20 = chart1.Series.Add("vavr_20");
-                }
-
-                avr_20.ChartType = SeriesChartType.Line;
-                avr_20.Color = Color.Blue;
-                avr_20.Points.Clear();
-
-                for (int i = 0; i < priceInfoList.Count - 20; i++)
-                {
-                    double avr_sum = 0.0;
-
-                    for (int j = 0; j < 20; j++)
-                    {
-                        avr_sum += priceInfoList[i + j].거래량;
-                    }
-
-                    priceInfoList[i].vavr_20 = avr_sum / 20;
-                    avr_20.Points.AddXY(chart1.Series["volumeSeries"].Points[i].XValue, priceInfoList[i].vavr_20);
-                }
-            }
-        }
-
-
-        void update_volume60이평선_add()
-        {
-            //  60이평선이 그려저 있다면 그 정보를 가져온다.
-            Series avr_60 = chart1.Series.FindByName("vavr_60");
-
-            if (avr_60 == null)
-            {
-                return;
-            }
-
-            double avr_sum;
-            avr_sum = 0.0;
-
-            // i~60개의 데이터 합을 구한다.
-            for (int i = 0; i < 60; i++)
-            {
-                avr_sum += priceInfoList[i].종가;
-            }
-            priceInfoList[0].vavr_60 = avr_sum / 60;
-
-            avr_60.Points.AddXY(chart1.Series["volumeSeries"].Points[0].XValue, priceInfoList[0].vavr_60);
-        }
-
-        void update_volume60이평선_update()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_60 = chart1.Series.FindByName("vavr_60");
-
-                if (avr_60 == null)
-                    return;
-
-                double avr_sum = 0.0;
-                for (int i = 0; i < 60; i++)
-                {
-                    avr_sum += priceInfoList[i].거래량;
-                }
-
-                priceInfoList[0].vavr_60 = avr_sum / 60;
-                avr_60.Points[0].SetValueY(priceInfoList[0].vavr_60);
-            }
-        }
-
-        void update_volume60이평선_create()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_60 = chart1.Series.FindByName("vavr_60");
-
-                if (avr_60 == null)
-                {
-                    avr_60 = chart1.Series.Add("vavr_60");
-                }
-
-                avr_60.ChartType = SeriesChartType.Line;
-                avr_60.Color = Color.Purple;
-                avr_60.Points.Clear();
-
-                for (int i = 0; i < priceInfoList.Count - 60; i++)
-                {
-                    double avr_sum = 0.0;
-
-                    for (int j = 0; j < 60; j++)
-                    {
-                        avr_sum += priceInfoList[i + j].거래량;
-                    }
-
-                    priceInfoList[i].vavr_60 = avr_sum / 60;
-                    avr_60.Points.AddXY(chart1.Series["volumeSeries"].Points[i].XValue, priceInfoList[i].vavr_60);
-                }
-            }
-        }
-
-
-        void update_volume120이평선_add()
-        {
-            //  20이평선이 그려저 있다면 그 정보를 가져온다.
-            Series avr_120 = chart1.Series.FindByName("vavr_120");
-
-            if (avr_120 == null)
-            {
-                return;
-            }
-
-            double avr_sum;
-            avr_sum = 0.0;
-
-            // i~120개의 데이터 합을 구한다.
-            for (int i = 0; i < 120; i++)
-            {
-                avr_sum += priceInfoList[i].거래량;
-            }
-            priceInfoList[0].vavr_120 = avr_sum / 120;
-
-            avr_120.Points.AddXY(chart1.Series["volumeSeries"].Points[0].XValue, priceInfoList[0].vavr_120);
-        }
-
-        void update_volume120이평선_update()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_120 = chart1.Series.FindByName("vavr_120");
-
-                if (avr_120 == null)
-                    return;
-
-                double avr_sum = 0.0;
-                for (int i = 0; i < 120; i++)
-                {
-                    avr_sum += priceInfoList[i].종가;
-                }
-
-                priceInfoList[0].vavr_120 = avr_sum / 120;
-                avr_120.Points[0].SetValueY(priceInfoList[0].vavr_120);
-            }
-        }
-
-        void update_volume120이평선_create()
-        {
-            if (priceInfoList.Count > 0)
-            {
-                Series avr_120 = chart1.Series.FindByName("vavr_120");
-
-                if (avr_120 == null)
-                {
-                    avr_120 = chart1.Series.Add("vavr_120");
-                }
-
-                avr_120.ChartType = SeriesChartType.Line;
-                avr_120.Color = Color.Brown;
-                avr_120.Points.Clear();
-
-                for (int i = 0; i < priceInfoList.Count - 120; i++)
-                {
-                    double avr_sum = 0.0;
-
-                    for (int j = 0; j < 120; j++)
-                    {
-                        avr_sum += priceInfoList[i + j].종가;
-                    }
-
-                    priceInfoList[i].vavr_120 = avr_sum / 120;
-                    avr_120.Points.AddXY(chart1.Series["volumeSeries"].Points[i].XValue, priceInfoList[i].vavr_120);
-                }
-            }
-        }
     }
 }
