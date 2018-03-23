@@ -656,18 +656,16 @@ namespace HtsProgram
                             FileStream fs = null;
                             StreamWriter sw = null;
                             
-                            
+
                             try
                             {
                                 fs = new FileStream(Initialsetupfile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                                 sw = new StreamWriter(fs, Encoding.Default);
                                 string message = string.Empty;
-                                kosdaqCountMin++;
+                                
                                 for (int nIdx = 0; nIdx < nCnt; nIdx++)
                                 {
-                                    System.Threading.Thread.Sleep(200);
-                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "시가").Trim());
-                                    textBox1.AppendText("\r\n" + kosdaqCountMin + "/" +kosdaqCountMax+ "|" + (double)nIdx / (double)nCnt * 100 +"%");
+                                       sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "시가").Trim());
                                 }                                  
                                 
                             }
@@ -680,7 +678,7 @@ namespace HtsProgram
                                 sw.Close();
                                 fs.Close();
                             }
-                        
+
                         textBox1.AppendText("\r\n\r\n" + NowCode + "저장 완료");
                         DeepLearningM = 0;
                         
@@ -1664,41 +1662,39 @@ namespace HtsProgram
         string NowCode = ""; // 현재 종목코드
         private void button5_Click(object sender, EventArgs e) // DeepLearning
         {
-            DeepLearningM = 1;
             //chart1.Series["Series1"].Points.Clear();
-            NowCode = textBox2.Text;
+            NowCode = textBox1.Text;
             axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
             axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
             axKHOpenAPI1.SetInputValue("수정주가구분", "1");
 
             int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
-            
+            DeepLearningM = 1;
         }
 
 
         string[] KosdaqListAll = new string[1300];
-        int kosdaqCountMax = 0, kosdaqCountMin;
         private void button6_Click(object sender, EventArgs e)
         {   
 
             System.IO.StreamReader file = new System.IO.StreamReader(@"C:\DeepLearningFile\kosdaq.txt");
+            int i = 0;
             string line;
             while ((line = file.ReadLine()) != null)
             {
-                KosdaqListAll[kosdaqCountMax] = line;
-                kosdaqCountMax++;
+                KosdaqListAll[i] = line;
+                i++;
             }
 
-            for(int j = 0; j < kosdaqCountMax; j++)
+            for(int j = 0; j < 1300; j++)
             {
-                    DeepLearningM = 1;
-                    NowCode = KosdaqListAll[j];
+                DeepLearningM = 1;
+                NowCode = KosdaqListAll[j];
                     axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
                     axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
                     axKHOpenAPI1.SetInputValue("수정주가구분", "1");
 
                     int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
-                
             }
 
                     
