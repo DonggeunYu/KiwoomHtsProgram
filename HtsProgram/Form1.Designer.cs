@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
@@ -115,10 +115,11 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -188,6 +189,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
@@ -381,7 +383,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 237F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 3, 0);
@@ -408,7 +410,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 1);
+            this.label3.Location = new System.Drawing.Point(69, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 29);
             this.label3.TabIndex = 8;
@@ -418,9 +420,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 1);
+            this.label2.Location = new System.Drawing.Point(13, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 29);
+            this.label2.Size = new System.Drawing.Size(32, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "순자산총액";
             // 
@@ -428,7 +430,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(251, 1);
+            this.label5.Location = new System.Drawing.Point(249, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 28);
             this.label5.TabIndex = 10;
@@ -438,7 +440,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(330, 1);
+            this.label6.Location = new System.Drawing.Point(328, 1);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 28);
             this.label6.TabIndex = 11;
@@ -448,7 +450,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(461, 1);
+            this.label7.Location = new System.Drawing.Point(459, 1);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 28);
             this.label7.TabIndex = 12;
@@ -458,7 +460,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(137, 1);
+            this.label4.Location = new System.Drawing.Point(135, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 29);
             this.label4.TabIndex = 9;
@@ -468,7 +470,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(587, 1);
+            this.label8.Location = new System.Drawing.Point(585, 1);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 29);
             this.label8.TabIndex = 13;
@@ -488,7 +490,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(330, 31);
+            this.label10.Location = new System.Drawing.Point(328, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(112, 27);
             this.label10.TabIndex = 15;
@@ -498,7 +500,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(461, 31);
+            this.label11.Location = new System.Drawing.Point(459, 31);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 27);
             this.label11.TabIndex = 16;
@@ -508,7 +510,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(587, 31);
+            this.label12.Location = new System.Drawing.Point(585, 31);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 27);
             this.label12.TabIndex = 17;
@@ -614,7 +616,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.tableLayoutPanel2.Controls.Add(this.turnoverRatioLabel, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.currentPriceLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.netChangeLabel, 1, 0);
@@ -641,7 +643,7 @@
             this.turnoverRatioLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.turnoverRatioLabel.AutoSize = true;
             this.turnoverRatioLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.turnoverRatioLabel.Location = new System.Drawing.Point(410, 9);
+            this.turnoverRatioLabel.Location = new System.Drawing.Point(408, 9);
             this.turnoverRatioLabel.Name = "turnoverRatioLabel";
             this.turnoverRatioLabel.Size = new System.Drawing.Size(42, 23);
             this.turnoverRatioLabel.TabIndex = 34;
@@ -652,7 +654,7 @@
             this.currentPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.currentPriceLabel.AutoSize = true;
             this.currentPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.currentPriceLabel.Location = new System.Drawing.Point(7, 2);
+            this.currentPriceLabel.Location = new System.Drawing.Point(6, 2);
             this.currentPriceLabel.Name = "currentPriceLabel";
             this.currentPriceLabel.Size = new System.Drawing.Size(64, 38);
             this.currentPriceLabel.TabIndex = 24;
@@ -663,7 +665,7 @@
             this.netChangeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.netChangeLabel.AutoSize = true;
             this.netChangeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.netChangeLabel.Location = new System.Drawing.Point(86, 9);
+            this.netChangeLabel.Location = new System.Drawing.Point(84, 9);
             this.netChangeLabel.Name = "netChangeLabel";
             this.netChangeLabel.Size = new System.Drawing.Size(55, 23);
             this.netChangeLabel.TabIndex = 25;
@@ -674,7 +676,7 @@
             this.fluctuationRateLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fluctuationRateLabel.AutoSize = true;
             this.fluctuationRateLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.fluctuationRateLabel.Location = new System.Drawing.Point(163, 9);
+            this.fluctuationRateLabel.Location = new System.Drawing.Point(161, 9);
             this.fluctuationRateLabel.Name = "fluctuationRateLabel";
             this.fluctuationRateLabel.Size = new System.Drawing.Size(42, 23);
             this.fluctuationRateLabel.TabIndex = 26;
@@ -685,7 +687,7 @@
             this.volumeChangeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.volumeChangeLabel.AutoSize = true;
             this.volumeChangeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.volumeChangeLabel.Location = new System.Drawing.Point(332, 9);
+            this.volumeChangeLabel.Location = new System.Drawing.Point(330, 9);
             this.volumeChangeLabel.Name = "volumeChangeLabel";
             this.volumeChangeLabel.Size = new System.Drawing.Size(42, 23);
             this.volumeChangeLabel.TabIndex = 27;
@@ -696,7 +698,7 @@
             this.accumulatedVolumeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.accumulatedVolumeLabel.AutoSize = true;
             this.accumulatedVolumeLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.accumulatedVolumeLabel.Location = new System.Drawing.Point(225, 9);
+            this.accumulatedVolumeLabel.Location = new System.Drawing.Point(223, 9);
             this.accumulatedVolumeLabel.Name = "accumulatedVolumeLabel";
             this.accumulatedVolumeLabel.Size = new System.Drawing.Size(82, 23);
             this.accumulatedVolumeLabel.TabIndex = 31;
@@ -707,7 +709,7 @@
             this.lowPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lowPriceLabel.AutoSize = true;
             this.lowPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.lowPriceLabel.Location = new System.Drawing.Point(906, 9);
+            this.lowPriceLabel.Location = new System.Drawing.Point(905, 9);
             this.lowPriceLabel.Name = "lowPriceLabel";
             this.lowPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.lowPriceLabel.TabIndex = 30;
@@ -719,7 +721,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.LightGray;
             this.label16.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label16.Location = new System.Drawing.Point(847, 7);
+            this.label16.Location = new System.Drawing.Point(845, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(32, 28);
             this.label16.TabIndex = 36;
@@ -730,7 +732,7 @@
             this.highPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.highPriceLabel.AutoSize = true;
             this.highPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.highPriceLabel.Location = new System.Drawing.Point(761, 9);
+            this.highPriceLabel.Location = new System.Drawing.Point(759, 9);
             this.highPriceLabel.Name = "highPriceLabel";
             this.highPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.highPriceLabel.TabIndex = 29;
@@ -742,7 +744,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.LightGray;
             this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label15.Location = new System.Drawing.Point(716, 7);
+            this.label15.Location = new System.Drawing.Point(714, 7);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 28);
             this.label15.TabIndex = 38;
@@ -753,7 +755,7 @@
             this.openPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.openPriceLabel.AutoSize = true;
             this.openPriceLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.openPriceLabel.Location = new System.Drawing.Point(630, 9);
+            this.openPriceLabel.Location = new System.Drawing.Point(628, 9);
             this.openPriceLabel.Name = "openPriceLabel";
             this.openPriceLabel.Size = new System.Drawing.Size(73, 23);
             this.openPriceLabel.TabIndex = 28;
@@ -765,7 +767,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.LightGray;
             this.label14.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label14.Location = new System.Drawing.Point(584, 7);
+            this.label14.Location = new System.Drawing.Point(582, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 28);
             this.label14.TabIndex = 37;
@@ -776,7 +778,7 @@
             this.tradingValueLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tradingValueLabel.AutoSize = true;
             this.tradingValueLabel.Font = new System.Drawing.Font("맑은 고딕", 10F);
-            this.tradingValueLabel.Location = new System.Drawing.Point(500, 9);
+            this.tradingValueLabel.Location = new System.Drawing.Point(498, 9);
             this.tradingValueLabel.Name = "tradingValueLabel";
             this.tradingValueLabel.Size = new System.Drawing.Size(46, 23);
             this.tradingValueLabel.TabIndex = 33;
@@ -1097,52 +1099,52 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AlignWithChartArea = "volumeChartArea";
-            chartArea3.AxisX.IsReversed = true;
-            chartArea3.AxisX.LabelStyle.Enabled = false;
-            chartArea3.AxisX.ScrollBar.Enabled = false;
-            chartArea3.AxisY.IsLabelAutoFit = false;
-            chartArea3.CursorX.IsUserSelectionEnabled = true;
-            chartArea3.InnerPlotPosition.Auto = false;
-            chartArea3.InnerPlotPosition.Height = 92.36364F;
-            chartArea3.InnerPlotPosition.Width = 90.32448F;
-            chartArea3.InnerPlotPosition.X = 1.675532F;
-            chartArea3.InnerPlotPosition.Y = 3.818182F;
-            chartArea3.Name = "PriceChartArea";
-            chartArea3.Position.Auto = false;
-            chartArea3.Position.Height = 55F;
-            chartArea3.Position.Width = 94F;
-            chartArea3.Position.X = 3F;
-            chartArea3.Position.Y = 3F;
-            chartArea4.AxisX.IsReversed = true;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.CursorX.IsUserSelectionEnabled = true;
-            chartArea4.InnerPlotPosition.Auto = false;
-            chartArea4.InnerPlotPosition.Height = 80.86906F;
-            chartArea4.InnerPlotPosition.Width = 90.32448F;
-            chartArea4.InnerPlotPosition.X = 1.675532F;
-            chartArea4.InnerPlotPosition.Y = 4.999996F;
-            chartArea4.Name = "volumeChartArea";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 38F;
-            chartArea4.Position.Width = 94F;
-            chartArea4.Position.X = 3F;
-            chartArea4.Position.Y = 59F;
-            this.chart1.ChartAreas.Add(chartArea3);
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea1.AlignWithChartArea = "volumeChartArea";
+            chartArea1.AxisX.IsReversed = true;
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.ScrollBar.Enabled = false;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 92.36364F;
+            chartArea1.InnerPlotPosition.Width = 90.32448F;
+            chartArea1.InnerPlotPosition.X = 1.675532F;
+            chartArea1.InnerPlotPosition.Y = 3.818182F;
+            chartArea1.Name = "PriceChartArea";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 55F;
+            chartArea1.Position.Width = 94F;
+            chartArea1.Position.X = 3F;
+            chartArea1.Position.Y = 3F;
+            chartArea2.AxisX.IsReversed = true;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.CursorX.IsUserSelectionEnabled = true;
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Height = 80.86906F;
+            chartArea2.InnerPlotPosition.Width = 90.32448F;
+            chartArea2.InnerPlotPosition.X = 1.675532F;
+            chartArea2.InnerPlotPosition.Y = 4.999996F;
+            chartArea2.Name = "volumeChartArea";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 38F;
+            chartArea2.Position.Width = 94F;
+            chartArea2.Position.X = 3F;
+            chartArea2.Position.Y = 59F;
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.Location = new System.Drawing.Point(298, 89);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "PriceChartArea";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Name = "priceSeries";
-            series3.YValuesPerPoint = 4;
-            series4.ChartArea = "volumeChartArea";
-            series4.Name = "volumeSeries";
-            series4.YValuesPerPoint = 4;
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "PriceChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "priceSeries";
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "volumeChartArea";
+            series2.Name = "volumeSeries";
+            series2.YValuesPerPoint = 4;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1018, 542);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -1162,6 +1164,25 @@
             this.tabPage6.Text = "DeepLearning";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button6.Location = new System.Drawing.Point(130, 50);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(229, 38);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "코스닥 주식 데이터 저장";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.textBox2.Location = new System.Drawing.Point(6, 11);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(118, 30);
+            this.textBox2.TabIndex = 1;
+            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -1173,24 +1194,16 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox2
+            // listBox1
             // 
-            this.textBox2.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(6, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 30);
-            this.textBox2.TabIndex = 1;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button6.Location = new System.Drawing.Point(130, 50);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(229, 38);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "코스닥 주식 데이터 저장";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.listBox1.Font = new System.Drawing.Font("나눔고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
+            this.listBox1.Location = new System.Drawing.Point(171, 210);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(206, 96);
+            this.listBox1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -1320,6 +1333,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

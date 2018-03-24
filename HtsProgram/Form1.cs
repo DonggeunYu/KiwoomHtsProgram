@@ -679,7 +679,7 @@ namespace HtsProgram
                                 fs.Close();
                             }
 
-                        textBox1.AppendText("\r\n\r\n" + NowCode + "저장 완료");
+                        textBox1.Text += ("\r\n\r\n" + NowCode + "저장 완료");
                         DeepLearningM = 0;
                         
                         return;
@@ -1663,7 +1663,7 @@ namespace HtsProgram
         private void button5_Click(object sender, EventArgs e) // DeepLearning
         {
             //chart1.Series["Series1"].Points.Clear();
-            NowCode = textBox1.Text;
+            NowCode = textBox2.Text;
             axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
             axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
             axKHOpenAPI1.SetInputValue("수정주가구분", "1");
