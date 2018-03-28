@@ -651,23 +651,27 @@ namespace HtsProgram
                     // 딥러닝
                     if (DeepLearningM == 1)
                     {
-                        string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + ".txt";
+                        
+                        if (checkBox3.Checked == true) // 종가
+                        {
+                            string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + "종가.txt";
+                            
 
                             FileStream fs = null;
                             StreamWriter sw = null;
-                            
 
+                            
                             try
                             {
-                                fs = new FileStream(Initialsetupfile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                                fs = new FileStream(Initialsetupfile, FileMode.Create, FileAccess.Write);
                                 sw = new StreamWriter(fs, Encoding.Default);
                                 string message = string.Empty;
-                                
+                                 
                                 for (int nIdx = 0; nIdx < nCnt; nIdx++)
                                 {
-                                       sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "시가").Trim());
-                                }                                  
-                                
+                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "현재가").Trim());
+                                }
+
                             }
                             catch (IOException ee)
                             {
@@ -678,8 +682,136 @@ namespace HtsProgram
                                 sw.Close();
                                 fs.Close();
                             }
+                        } // 종가
+                        else if (checkBox2.Checked == true) // 시가
+                        {
+                            string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + "시가.txt";
+                            
+                            FileStream fs = null;
+                            StreamWriter sw = null;
 
-                        textBox1.Text += ("\r\n\r\n" + NowCode + "저장 완료");
+                            
+                            try
+                            {
+                                fs = new FileStream(Initialsetupfile, FileMode.Create, FileAccess.Write);
+                                sw = new StreamWriter(fs, Encoding.Default);
+                                string message = string.Empty;
+
+                                for (int nIdx = 0; nIdx < nCnt; nIdx++)
+                                {
+                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "시가").Trim());
+                                }
+
+                            }
+                            catch (IOException ee)
+                            {
+                                MessageBox.Show(ee.Message);
+                            }
+                            finally
+                            {
+                                sw.Close();
+                                fs.Close();
+                            }
+                        } // 시가
+                        else if (checkBox4.Checked == true) // 시가
+                        {
+                            string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + "고가.txt";
+                            
+                            FileStream fs = null;
+                            StreamWriter sw = null;
+
+                            
+                            try
+                            {
+                                fs = new FileStream(Initialsetupfile, FileMode.Create, FileAccess.Write);
+                                sw = new StreamWriter(fs, Encoding.Default);
+                                string message = string.Empty;
+
+                                for (int nIdx = 0; nIdx < nCnt; nIdx++)
+                                {
+                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "고가").Trim());
+                                }
+
+                            }
+                            catch (IOException ee)
+                            {
+                                MessageBox.Show(ee.Message);
+                            }
+                            finally
+                            {
+                                sw.Close();
+                                fs.Close();
+                            }
+                        } // 고가
+                        else if (checkBox5.Checked == true) // 저가
+                        {
+                            string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + "저가.txt";
+                            
+                            FileStream fs = null;
+                            StreamWriter sw = null;
+
+                            
+                            try
+                            {
+                                fs = new FileStream(Initialsetupfile, FileMode.Create, FileAccess.Write);
+                                sw = new StreamWriter(fs, Encoding.Default);
+                                string message = string.Empty;
+
+                                for (int nIdx = 0; nIdx < nCnt; nIdx++)
+                                {
+                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "저가").Trim());
+                                }
+
+                            }
+                            catch (IOException ee)
+                            {
+                                MessageBox.Show(ee.Message);
+                            }
+                            finally
+                            {
+                                sw.Close();
+                                fs.Close();
+                            }
+                        } // 저가
+                        else if (checkBox6.Checked == true)
+                        {
+                            string Initialsetupfile = @"C:\DeepLearningFile\Kosdaq\" + NowCode + "거래량.txt";
+                            
+                            FileStream fs = null;
+                            StreamWriter sw = null;
+
+                            
+                            try
+                            {
+                                fs = new FileStream(Initialsetupfile, FileMode.Create, FileAccess.Write);
+                                sw = new StreamWriter(fs, Encoding.Default);
+                                string message = string.Empty;
+
+                                for (int nIdx = 0; nIdx < nCnt; nIdx++)
+                                {
+                                    sw.WriteLine(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, nIdx, "거래량").Trim());
+                                }
+
+                            }
+                            catch (IOException ee)
+                            {
+                                MessageBox.Show(ee.Message);
+                            }
+                            finally
+                            {
+                                sw.Close();
+                                fs.Close();
+                            }
+                        } // 거래량
+                        else
+                        {
+                            MessageBox.Show("NULL값 입니다.");
+                            DeepLearningM = 0;
+                            return;
+                        }
+                        
+                        KosdaqListMin++;
+                        textBox1.AppendText("\r\n\r\n["+ KosdaqListMax + "/" + KosdaqListMin + "] | " + ((double)KosdaqListMin / (double)KosdaqListMax * 100) + "% | " + NowCode + "완료");
                         DeepLearningM = 0;
                         
                         return;
@@ -1659,9 +1791,13 @@ namespace HtsProgram
 
 
         int DeepLearningM = 0;
+        int KosdaqListMax = 0, KosdaqListMin = 0;
         string NowCode = ""; // 현재 종목코드
         private void button5_Click(object sender, EventArgs e) // DeepLearning
         {
+            DeepLearningM = 1;
+            KosdaqListMin = 0;
+            KosdaqListMax = 1;
             //chart1.Series["Series1"].Points.Clear();
             NowCode = textBox2.Text;
             axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
@@ -1669,14 +1805,16 @@ namespace HtsProgram
             axKHOpenAPI1.SetInputValue("수정주가구분", "1");
 
             int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
-            DeepLearningM = 1;
+            
         }
 
 
         string[] KosdaqListAll = new string[1300];
         private void button6_Click(object sender, EventArgs e)
-        {   
-
+        {
+            js = Int32.Parse(textBox3.Text);
+            KosdaqListMax = 0;
+            KosdaqListMin = js;
             System.IO.StreamReader file = new System.IO.StreamReader(@"C:\DeepLearningFile\kosdaq.txt");
             int i = 0;
             string line;
@@ -1685,25 +1823,123 @@ namespace HtsProgram
                 KosdaqListAll[i] = line;
                 i++;
             }
-
-            for(int j = 0; j < 1300; j++)
-            {
-                DeepLearningM = 1;
-                NowCode = KosdaqListAll[j];
-                    axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
-                    axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
-                    axKHOpenAPI1.SetInputValue("수정주가구분", "1");
-
-                    int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
-            }
-
+            KosdaqListMax = i - 1;
+            timer1.Start();
                     
+        }
+        int js = 0;
+
+        public void TimerStop()
+        {
+            timer1.Stop();
+            System.Threading.Thread.Sleep(1000);
+            timer1.Start();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if ("" == KosdaqListAll[js])
+            {
+                js = 0;
+                timer1.Stop();
+                return;
+            }
+            if(js % 10 == 0)
+            {
+                TimerStop();
+            }
+                DeepLearningM = 1;
+                
+                NowCode = KosdaqListAll[js];
+
+                axKHOpenAPI1.SetInputValue("종목코드", NowCode.ToString());
+                axKHOpenAPI1.SetInputValue("기준일자", DateTime.Now.ToString("yyyyMMdd"));
+                axKHOpenAPI1.SetInputValue("수정주가구분", "1");
+                
+                int nRet = axKHOpenAPI1.CommRqData("JM_주식일봉차트조회", "OPT10081", 0, "5002");
+                js++;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            KosdaqListMax = 0;
+            js = Int32.Parse(textBox3.Text);
+            KosdaqListMin = js;
+            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\DeepLearningFile\kosdaq.txt");
+            string line;
+            if (checkBox2.Checked == true)
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string fileS = @"C:\DeepLearningFile\Kosdaq\" + line + "시가.txt";
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
+                    if (!fi.Exists)
+                    {
+                        textBox1.AppendText("\r\n" + line + "시가 없음");
+                    }
+                }
+            } // 시가
+            if (checkBox3.Checked == true)
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string fileS = @"C:\DeepLearningFile\Kosdaq\" + line + "종가.txt";
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
+                    if (!fi.Exists)
+                    {
+                        textBox1.AppendText("\r\n" + line + "종가 없음");
+                    }
+                }
+            } // 종가
+            if (checkBox4.Checked == true)
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string fileS = @"C:\DeepLearningFile\Kosdaq\" + line + "고가.txt";
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
+                    if (!fi.Exists)
+                    {
+                        textBox1.AppendText("\r\n" + line + "고가 없음");
+                    }
+                }
+            } // 고가
+            if (checkBox5.Checked == true)
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string fileS = @"C:\DeepLearningFile\Kosdaq\" + line + "저가.txt";
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
+                    if (!fi.Exists)
+                    {
+                        textBox1.AppendText("\r\n" + line + "저가 없음");
+                    }
+                }
+            } // 저가
+            if (checkBox6.Checked == true) // 거래량
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string fileS = @"C:\DeepLearningFile\Kosdaq\" + line + "거래량.txt";
+                    System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
+                    if (!fi.Exists)
+                    {
+                        textBox1.AppendText("\r\n" + line + "거래량 없음");
+                    }
+                }
+            } // 거래량
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Select(textBox1.Text.Length, 0);
-            textBox1.ScrollToCaret();
         }
 
 
