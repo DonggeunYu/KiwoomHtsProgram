@@ -1874,7 +1874,7 @@ namespace HtsProgram
                     System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
                     if (!fi.Exists)
                     {
-                        textBox1.AppendText("\r\n" + line + "시가 없음");
+                        textBox1.AppendText("\r\n" + line + " 시가 없음");
                     }
                 }
             } // 시가
@@ -1886,7 +1886,7 @@ namespace HtsProgram
                     System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
                     if (!fi.Exists)
                     {
-                        textBox1.AppendText("\r\n" + line + "종가 없음");
+                        textBox1.AppendText("\r\n" + line + " 종가 없음");
                     }
                 }
             } // 종가
@@ -1898,7 +1898,7 @@ namespace HtsProgram
                     System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
                     if (!fi.Exists)
                     {
-                        textBox1.AppendText("\r\n" + line + "고가 없음");
+                        textBox1.AppendText("\r\n" + line + " 고가 없음");
                     }
                 }
             } // 고가
@@ -1910,7 +1910,7 @@ namespace HtsProgram
                     System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
                     if (!fi.Exists)
                     {
-                        textBox1.AppendText("\r\n" + line + "저가 없음");
+                        textBox1.AppendText("\r\n" + line + " 저가 없음");
                     }
                 }
             } // 저가
@@ -1922,7 +1922,7 @@ namespace HtsProgram
                     System.IO.FileInfo fi = new System.IO.FileInfo(fileS);
                     if (!fi.Exists)
                     {
-                        textBox1.AppendText("\r\n" + line + "거래량 없음");
+                        textBox1.AppendText("\r\n" + line + " 거래량 없음");
                     }
                 }
             } // 거래량
